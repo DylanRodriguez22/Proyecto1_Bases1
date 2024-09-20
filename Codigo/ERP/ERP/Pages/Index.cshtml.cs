@@ -5,16 +5,36 @@ namespace ERP.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        [BindProperty]
+        public string Usuario { get; set; } = "";
+
+        [BindProperty]
+        public string Contrasenia { get; set; } = "";
+
+        [BindProperty]
+        public string Username { get; set; }
+
+        [BindProperty]
+        public string Password { get; set; }
+
+        public string Message { get; set; }
+
+        public IActionResult OnPost()
         {
-            _logger = logger;
-        }
+            // Aquí puedes hacer una autenticación sencilla para un proyecto local
+            if (Usuario == "." && Contrasenia == ".")
+            {
+                // Guardar el usuario en la sesión
+                HttpContext.Session.SetString("Usuario", Usuario);
 
-        public void OnGet()
-        {
+                // Redirigir a la página principal (por ejemplo, un dashboard)
+                return RedirectToPage("/Privacy");
+            }
 
+            // Mostrar un mensaje de error si la autenticación falla
+            Message = "Usuario o contraseña incorrectos";
+            return Page();
         }
     }
 }
