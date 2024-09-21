@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ERP.Pages
+namespace ERP.Pages.RRHH
 {
-    public class PaginaPrincipalRRHHModel : PageModel
+    public class EmpleadosModel : PageModel
     {
         public void OnGet()
         {

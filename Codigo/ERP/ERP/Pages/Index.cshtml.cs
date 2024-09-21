@@ -26,15 +26,15 @@ namespace ERP.Pages
             HttpContext.Session.SetString("Usuario", Usuario);
             if (Usuario == "V" | Usuario == "v")
             {
-                return RedirectToPage("/PaginaPrincipalVentas");
+                return RedirectToPage("Ventas/PaginaPrincipalVentas");
             }
             else if (Usuario == "R" | Usuario == "r")
             {
-                return RedirectToPage("/PaginaPrincipalRRHH");
+                return RedirectToPage("RRHH/PaginaPrincipalRRHH");
             }
             else
             {
-                return RedirectToPage("/PaginaPrincipalProduccion");
+                return RedirectToPage("Produccion/PaginaPrincipalProduccion");
             }
 
                 

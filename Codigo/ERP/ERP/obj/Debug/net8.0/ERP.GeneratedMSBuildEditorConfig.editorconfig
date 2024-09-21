@@ -26,20 +26,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/PaginaPrincipalProduccion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnaW5hUHJpbmNpcGFsUHJvZHVjY2lvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/PaginaPrincipalRRHH.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnaW5hUHJpbmNpcGFsUlJISC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/PaginaPrincipalVentas.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnaW5hUHJpbmNpcGFsVmVudGFzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Produccion/PaginaPrincipalProduccion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjY2lvblxQYWdpbmFQcmluY2lwYWxQcm9kdWNjaW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/Empleados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxFbXBsZWFkb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/PaginaPrincipalRRHH.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxQYWdpbmFQcmluY2lwYWxSUkhILmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/Planilla.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxQbGFuaWxsYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Shared/_LayoutProduccion.cshtml]
@@ -60,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/PaginaPrincipalVentas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXFBhZ2luYVByaW5jaXBhbFZlbnRhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/_ViewImports.cshtml]
