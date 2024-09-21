@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oW+3MCmwClorYTQKySsXDKv67ccQc8DM+2n7ZARDAKo=",
+  "Hash": "cFRByeaZqPvlKXehSnU4DOzRdB7HbFpCFv+1UzYFvXw=",
   "Source": "ERP",
   "BasePath": "_content/ERP",
   "Mode": "Default",
@@ -55,12 +55,12 @@
       "OriginalItemSpec": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ERP.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\estilo_LayoutSidebar.css",
+      "Identity": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\estilo_LayoutVentas.css",
       "SourceId": "ERP",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\",
       "BasePath": "_content/ERP",
-      "RelativePath": "css/estilo_LayoutSidebar.css",
+      "RelativePath": "css/estilo_LayoutVentas.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -71,7 +71,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\estilo_LayoutSidebar.css"
+      "OriginalItemSpec": "wwwroot\\css\\estilo_LayoutVentas.css"
     },
     {
       "Identity": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\site.css",

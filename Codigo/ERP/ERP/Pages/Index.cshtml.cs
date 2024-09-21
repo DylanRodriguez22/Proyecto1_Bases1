@@ -22,15 +22,29 @@ namespace ERP.Pages
 
         public IActionResult OnPost()
         {
-            
-             // Guardar el usuario en la sesión
-             HttpContext.Session.SetString("Usuario", Usuario);
+            // Guardar el usuario en la sesión
+            HttpContext.Session.SetString("Usuario", Usuario);
+            if (Usuario == "V" | Usuario == "v")
+            {
+                return RedirectToPage("/PaginaPrincipalVentas");
+            }
+            else if (Usuario == "R" | Usuario == "r")
+            {
+                return RedirectToPage("/PaginaPrincipalRRHH");
+            }
+            else
+            {
+                return RedirectToPage("/PaginaPrincipalProduccion");
+            }
 
-             // Redirigir a la página principal (por ejemplo, un dashboard)
-             return RedirectToPage("/Privacy");
-            
+                
 
-        
+
+            // Redirigir a la página principal (por ejemplo, un dashboard)
+
+
+
+
         }
     }
 }
