@@ -43,8 +43,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-21T17:12:56.342Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -58,7 +57,7 @@
               "RelativeDocumentMoniker": "ERP\\Pages\\Shared\\_LayoutSideBar.cshtml",
               "ToolTip": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\Pages\\Shared\\_LayoutSideBar.cshtml",
               "RelativeToolTip": "ERP\\Pages\\Shared\\_LayoutSideBar.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACYAAAA1AAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAgwBcAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-21T17:42:43.704Z",
               "EditorCaption": ""
@@ -73,8 +72,7 @@
               "RelativeToolTip": "ERP\\Pages\\Privacy.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-21T17:12:58.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T17:12:58.196Z"
             },
             {
               "$type": "Document",
@@ -86,8 +84,7 @@
               "RelativeToolTip": "ERP\\Pages\\Index.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-21T17:12:57.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T17:12:57.527Z"
             },
             {
               "$type": "Document",
@@ -99,8 +96,7 @@
               "RelativeToolTip": "ERP\\wwwroot\\css\\estilo_LayoutSidebar.css",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-21T15:37:08.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T15:37:08.396Z"
             }
           ]
         }
