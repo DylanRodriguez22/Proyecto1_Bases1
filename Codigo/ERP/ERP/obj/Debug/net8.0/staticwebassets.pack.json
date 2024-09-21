@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\ERP.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\estilo_LayoutSidebar.css",
+      "PackagePath": "staticwebassets\\css\\estilo_LayoutSidebar.css"
+    },
+    {
       "Id": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -22,19 +22,15 @@ namespace ERP.Pages
 
         public IActionResult OnPost()
         {
-            // Aquí puedes hacer una autenticación sencilla para un proyecto local
-            if (Usuario == "." && Contrasenia == ".")
-            {
-                // Guardar el usuario en la sesión
-                HttpContext.Session.SetString("Usuario", Usuario);
+            
+             // Guardar el usuario en la sesión
+             HttpContext.Session.SetString("Usuario", Usuario);
 
-                // Redirigir a la página principal (por ejemplo, un dashboard)
-                return RedirectToPage("/Privacy");
-            }
+             // Redirigir a la página principal (por ejemplo, un dashboard)
+             return RedirectToPage("/Privacy");
+            
 
-            // Mostrar un mensaje de error si la autenticación falla
-            Message = "Usuario o contraseña incorrectos";
-            return Page();
+        
         }
     }
 }

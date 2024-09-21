@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HH0+stLoPbrWfG9KEzSbWZhF6IVWbJVWsmuBdR4aFPM=",
+  "Hash": "oW+3MCmwClorYTQKySsXDKv67ccQc8DM+2n7ZARDAKo=",
   "Source": "ERP",
   "BasePath": "_content/ERP",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ERP.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\estilo_LayoutSidebar.css",
+      "SourceId": "ERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\",
+      "BasePath": "_content/ERP",
+      "RelativePath": "css/estilo_LayoutSidebar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\estilo_LayoutSidebar.css"
     },
     {
       "Identity": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\css\\site.css",
