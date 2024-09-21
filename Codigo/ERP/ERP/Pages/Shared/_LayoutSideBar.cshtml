@@ -9,6 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    @RenderBody() 
     <nav>
         <div class="logo">
             <i class='bx bx-menu menu-icon'></i>
@@ -80,7 +81,7 @@
             </div>
         </div>
     </nav>
-    <section class="overlay"></section>
+    <section class="overlay">
 
     <script>
         const navBar = document.querySelector("nav"),
@@ -97,6 +98,8 @@
         })
 
     </script>
-    @RenderBody()
+        
+    </section>
+    
 </body>
 </html>
