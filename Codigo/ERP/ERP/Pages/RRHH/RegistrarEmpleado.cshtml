@@ -37,7 +37,7 @@
         <br> <br />
         <label>Provincia</label>
         <select id="provincias" name="provincias" onchange="actualizarCantones()">
-            @foreach (var provincia in Model.provincias)
+            @foreach (var provincia in Model.direccion.provincias)
             {
                 <option value="@provincia">@provincia</option>
             }
@@ -45,13 +45,21 @@
 
         <!--Seleccionar Cantón-->
         <label>Cantón</label>
-        <select id="cantones" name="cantones">
-            @foreach (var cantonSanJose in Model.cantonesSanJose)
+        <select id="cantones" name="cantones" onchange="actualizarDistritos()">
+            @foreach (var cantonSanJose in Model.direccion.cantonesSanJose)
             {
                 <option value="@cantonSanJose">@cantonSanJose</option>
             }
         </select>
 
+        <!--Seleccionar Distrito-->
+        <label>Distrito</label>
+        <select id="distritos" name="distritos" >
+            @foreach (var distritosSanJose in Model.direccion.distritosSanJose)
+            {
+            <option value="@distritosSanJose">@distritosSanJose</option>
+            }
+        </select>
     </form>
 </div>
 
@@ -65,25 +73,25 @@
         var listaCantones = [];
         switch (provincia) {
             case "San José":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesSanJose));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesSanJose));
                 break;
             case "Alajuela":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesAlajuela));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesAlajuela));
                 break;
             case "Cartago":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesCartago));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesCartago));
                 break;
             case "Heredia":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesHeredia));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesHeredia));
                 break;
             case "Guanacaste":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesGuanacaste));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesGuanacaste));
                 break;
             case "Puntarenas":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesPuntarenas));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesPuntarenas));
                 break;
             case "Limón":
-                listaCantones = @Html.Raw(Json.Serialize(Model.cantonesLimon));
+                listaCantones = @Html.Raw(Json.Serialize(Model.direccion.cantonesLimon));
                 break;
         }
 
@@ -94,5 +102,305 @@
             option.text = canton;
             cantones.add(option);
         });
+        actualizarDistritos();
+    }
+
+    function actualizarDistritos() {
+        var provincia = document.getElementById("provincias").value;
+        var canton = document.getElementById("cantones").value;
+        var distritos = document.getElementById("distritos");
+
+        distritos.innerHTML = ''; // Se limpia el ComboBox de distritos
+        var listaDistritos = [];
+
+        if (provincia == "San José") {
+            switch (canton) {
+                case "San José":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanJose));
+                    break;
+                case "Escazú":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosEscazu));
+                    break;
+                case "Desamparados":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosDesamparados));
+                    break;
+                case "Puriscal":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosPuriscal));
+                    break;
+                case "Tarrazú":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosTarrazu));
+                    break;
+                case "Aserrí":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAserri));
+                    break;
+                case "Mora":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosMora));
+                    break;
+                case "Goicoechea":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosGoicoechea));
+                    break;
+                case "Santa Ana":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSantaAna));
+                    break;
+                case "Alajuelita":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAlajuelita));
+                    break;
+                case "Vázquez de Coronado":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosVazquezDeCoronado));
+                    break;
+                case "Acosta":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAcosta));
+                    break;
+                case "Tibás":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosTibas));
+                    break;
+                case "Moravia":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosMoravia));
+                    break;
+                case "Montes de Oca":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosMontesDeOca));
+                    break;
+                case "Turrubares":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosTurrubares));
+                    break
+                case "Dota":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosDota));
+                    break;
+                case "Curridabat":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosCurridabat));
+                    break;
+                case "Pérez Zeledón":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosPerezZeledon));
+                    break;
+                case "León Cortés Castro":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosLeonCortesCastro));
+                    break;
+
+            } //Termina el switch
+        }//Termina el if
+        else if (provincia == "Alajuela") {
+            switch (canton) {
+                case "Alajuela":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAlajuela));
+                    break;
+                case "San Ramón":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanRamon));
+                    break;
+                case "Grecia":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosGrecia));
+                    break;
+                case "San Mateo":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanMateo));
+                    break;
+                case "Atenas":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAtenas));
+                    break;
+                case "Naranjo":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosNaranjo));
+                    break;
+                case "Palmares":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosPalmares));
+                    break;
+                case "Poás":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosPoas));
+                    break;
+                case "Orotina":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosOrotina));
+                    break;
+                case "San Carlos":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanCarlos));
+                    break;
+                case "Zarcero":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosZarcero));
+                    break;
+                case "Sarchí":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSarchí));
+                    break;
+                case "Upala":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosUpala));
+                    break;
+                case "Los Chiles":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosLosChiles));
+                    break;
+                case "Guatuso":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosGuatuso));
+                    break;
+                case "Río Cuarto":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosRioCuarto));
+                    break;
+            }//Termina el switch
+        }//Termina el if
+        else if (provincia == "Cartago") {
+            switch (canton) {
+                case "Cartago":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosCartago));
+                    break;
+                case "Paraíso":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosParaíso));
+                    break;
+                case "La Unión":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosLaUnion));
+                    break;
+                case "Jiménez":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosJimenez));
+                    break;
+                case "Turrialba":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosTurrialba));
+                    break;
+                case "Alvarado":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAlvarado));
+                    break;
+                case "Oreamuno":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosOreamuno));
+                    break;
+                case "El Guarco":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosElGuarco));
+                    break;
+            }
+        }
+        else if (provincia == "Heredia") {
+            switch (canton) {
+                case "Heredia":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosHeredia));
+                    break;
+                case "Barva":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosBarva));
+                    break;
+                case "Santo Domingo":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSantoDomingo));
+                    break;
+                case "Santa Bárbara":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSantaBarbara));
+                    break;
+                case "San Rafael":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanRafael));
+                    break;
+                case "San Isidro":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanIsidro));
+                    break;
+                case "Belén":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosBelen));
+                    break;
+                case "Flores":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosFlores));
+                    break;
+                case "San Pablo":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSanPablo));
+                    break;
+                case "Heredia":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosHeredia));
+                    break;
+                case "Sarapiquí":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSarapiqui));
+                    break;
+            }
+        }
+
+        else if (provincia == "Guanacaste") {
+            switch (canton) {
+                case "Liberia":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosLiberia));
+                    break;
+                case "Nicoya":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosNicoya));
+                    break;
+                case "Santa Cruz":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSantaCruz));
+                    break;
+                case "Bagaces":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosBagaces));
+                    break;
+                case "Carrillo":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosCarrillo));
+                    break;
+                case "Cañas":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosCañas));
+                    break;
+                case "Abangares":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosAbangares));
+                    break;
+                case "Tilarán":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosTilarán));
+                    break;
+                case "Nandayure":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosNandayure));
+                    break;
+                case "La Cruz":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosLaCruz));
+                    break;
+                case "Hojancha":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosHojancha));
+                    break;
+            }
+        }
+        else if (provincia == "Puntarenas") {
+            switch (canton) {
+                case "Puntarenas":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosPuntarenas));
+                    break;
+                case "Esparza":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosEsparza));
+                    break;
+                case "Buenos Aires":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosBuenosAires));
+                    break;
+                case "Montes de Oro":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosMontesDeOro));
+                    break;
+                case "Osa":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosOsa));
+                    break;
+                case "Quepos":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosQuepos));
+                    break;
+                case "Golfito":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosGolfito));
+                    break;
+                case "Coto Brus":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosCotoBrus));
+                    break;
+                case "Parrita":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosParrita));
+                    break;
+                case "Corredores":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosCorredores));
+                    break;
+                case "Garabito":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosGarabito));
+                    break;
+            }
+        }
+        else {
+            switch (canton) 
+            {
+                case "Limón":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosLimón));
+                    break;
+                case "Pococí":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosPococí));
+                    break;
+                case "Siquirres":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosSiquirres));
+                    break;
+                case "Talamanca":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosTalamanca));
+                    break;
+                case "Matina":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosMatina));
+                    break;
+                case "Guácimo":
+                    listaDistritos = @Html.Raw(Json.Serialize(Model.direccion.distritosGuácimo));
+                    break;
+
+            }
+        }
+        // Aquí añado la lista al combo
+        listaDistritos.forEach(function (distrito) {
+            var option = document.createElement("option");
+            option.value = distrito;
+            option.text = distrito;
+            distritos.add(option);
+        });
+        
     }
 </script>

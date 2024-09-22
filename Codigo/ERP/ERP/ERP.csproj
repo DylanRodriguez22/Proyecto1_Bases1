@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Direccion.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\Direccion.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="wwwroot\Direccion.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Pages\Para todos\" />
   </ItemGroup>
 
