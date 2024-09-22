@@ -47,6 +47,7 @@ CREATE TABLE RRHH.Usuario (
 	canton VARCHAR (20) NOT NULL,
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL,
+	fechaRegistro DATE NOT NULL,
 	-- CREDENCIALES 
 	usuario VARCHAR (15),
 	contrasenia VARCHAR (15)
