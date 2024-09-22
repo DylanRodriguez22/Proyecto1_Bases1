@@ -1,6 +1,7 @@
 ﻿@page
 @model ERP.Pages.RRHH.RegistrarEmpleadoModel
 @{
+    var fechaHoyH = Model.fechaHoy.ToString("yyyy-MM-dd");
     Layout = "_LayoutRRHH";
 }
 
@@ -9,14 +10,88 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 50vh;
+        min-height: 70vh;
     }
 
+    .campoGrande {
+        width: 250px; /* Ajusta el ancho */
+        height: 250px; /* Ajusta la altura */
+    }
+
+     form{
+        background: rgba(19, 35, 47,.9);
+        padding: 40px;
+        border-radius: 4px;
+        margin: 40px auto;
+        box-shadow: 0 4px 10px 4px rgba(19, 35, 47,.3);
+       
+    }
+
+    h1 {
+        color: #ffffff;
+        text-align: center;
+        margin: 0 0 40px;
+    }
+
+    h2 {
+        color: #ffffff;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    input {
+        color: #ffffff;
+        /*font-size: 18px;*/
+        padding: 5px 10px;
+        /*margin-right: 15px;*/
+        margin-left: 15px;
+        margin-bottom: 10px;
+        background: none;
+        background-image: none;
+        border: 1px solid #a0b3b0;
+        border-radius: 0;
+        transition: border-color .25s ease, box-shadow .25s;
+    }
+
+    label{
+        color: #ffffff;
+        /*margin-right: 15px;*/
+        /*margin-left: 15px;*/
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    select {
+        color: #ffffff; /* Texto en blanco para combinar */
+        padding: 5px 10px; /* Igual que el input */
+        margin-right: 15px;
+        margin-left: 15px;
+        margin-bottom: 10px;
+        background: none;
+        border: 1px solid #a0b3b0;
+        border-radius: 0;
+        transition: border-color .25s ease, box-shadow .25s;
+        appearance: none; /* Elimina el estilo predeterminado del navegador */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: transparent;
+    }
+
+    option {
+        color: #000000; /* Texto negro dentro de las opciones desplegadas */
+        background-color: #ffffff; /* Fondo blanco para mejor contraste */
+    }
+
+    .bx{
+        color: #ffffff; /* Color del ícono */
+        margin-left: -1px;
+    }
 
 </style>
 <div class="container">
     <form method="POST">
         <h1>Agregar Empleado</h1>
+        <h2>Datos Personales</h2>
         <input type="text" id="primerNombre" asp-for="primerNombre" , value="@Model.primerNombre" placeholder="Primer Nombre">
         <span asp-validation-for="primerNombre" class="text_danger"></span>
 
@@ -32,9 +107,19 @@
         <span asp-validation-for="segundoApellido" class="text_danger"></span>
         <br> <br />
 
+        <!--Cédula, género y fechaNacimiento-->
+        <label>Género</label>
+        <select id="generos" name="generos">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Masculino</option>
+        </select>
+        <i class='bx bx-down-arrow-alt'></i>
+        <input type="text" id="cedula" asp-for="cedula" , value="@Model.cedula" placeholder="Número de Cédula">
+        <span asp-validation-for="cedula" class="text_danger"></span>
+        <input type="date" id="fecha" name="fecha" value="@fechaHoyH" max="@fechaHoyH" /><br> <br />
+       
         <!--Combobox para la dirección-->
-        <label>Dirección</label>
-        <br> <br />
+        <H2>Dirección</H2>
         <label>Provincia</label>
         <select id="provincias" name="provincias" onchange="actualizarCantones()">
             @foreach (var provincia in Model.direccion.provincias)
@@ -60,7 +145,35 @@
             <option value="@distritosSanJose">@distritosSanJose</option>
             }
         </select>
+        <br> <br />
+        <!--Señas exactas-->
+        <input type="text" name="seniasExactas" class="campoGrande" placeholder="Señas exactas" />
+
+        <!--Departamento y puesto-->
+        <h2>Datos Laborales</h2>
+        <label>Departamento</label>
+        <select id="departamentos" name="departamentos">
+            <option value="Recursos Humanos">Recursos Humanos</option>
+            <option value="Ventas">Ventas</option>
+            <option value="Producción">Producción</option>
+        </select>
+        
+        <label>Puesto</label>
+        <select id="puestos" name="puestos">
+            <option value="Recursos Humanos">Recursos Humanos</option>
+            <option value="Ventas">Ventas</option>
+            <option value="Producción">Producción</option>
+        </select>
+        <label>Salario</label>
+        <input type="text" id="salario" asp-for="salario" , value="@Model.salario" placeholder="Salario">
+        <span asp-validation-for="salario" class="text_danger"></span>
+
+        <!--Botón para registrar-->
+        <br> <br />
+        <input class="Boton" type="submit" name="Registar" value="Registrar Usuario" />
     </form>
+
+    
 </div>
 
 <script>

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|solutionrelative:erp\\pages\\rrhh\\registrarempleado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|c:\\users\\dylan\\documents\\proyecto1_bases1\\codigo\\erp\\erp\\wwwroot\\direccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|solutionrelative:erp\\wwwroot\\direccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|c:\\users\\dylan\\documents\\proyecto1_bases1\\codigo\\erp\\erp\\pages\\rrhh\\registrarempleado.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|solutionrelative:erp\\pages\\rrhh\\registrarempleado.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|c:\\users\\dylan\\documents\\proyecto1_bases1\\codigo\\erp\\erp\\wwwroot\\direccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14494D0A-1384-4EDB-B397-CCDCEB25C460}|ERP\\ERP.csproj|solutionrelative:erp\\wwwroot\\direccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -36,54 +36,33 @@
               "RelativeDocumentMoniker": "ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml",
               "ToolTip": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml",
               "RelativeToolTip": "ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAgwGsAAAAkAAAA",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAmwE0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-22T02:40:23.564Z",
               "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "c9ae9abf-e0da-4c3a-848e-5a95780c62d1",
-        "Display": 1,
-        "X": 363,
-        "Y": 233,
-        "Width": 1092,
-        "Height": 530,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
+            },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "RegistrarEmpleado.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml.cs",
               "RelativeDocumentMoniker": "ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml.cs",
               "ToolTip": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml.cs",
               "RelativeToolTip": "ERP\\Pages\\RRHH\\RegistrarEmpleado.cshtml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T03:15:10.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Direccion.cs",
               "DocumentMoniker": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\Direccion.cs",
               "RelativeDocumentMoniker": "ERP\\wwwroot\\Direccion.cs",
               "ToolTip": "C:\\Users\\Dylan\\Documents\\Proyecto1_Bases1\\Codigo\\ERP\\ERP\\wwwroot\\Direccion.cs",
               "RelativeToolTip": "ERP\\wwwroot\\Direccion.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAYwK8AAABLAAAA",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAgwK8AAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T04:56:27.04Z",
               "EditorCaption": ""
