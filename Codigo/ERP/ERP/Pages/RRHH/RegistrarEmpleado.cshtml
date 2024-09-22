@@ -11,11 +11,23 @@
         justify-content: center;
         align-items: center;
         min-height: 70vh;
+        margin-top: 80px;
     }
 
     .campoGrande {
-        width: 250px; /* Ajusta el ancho */
-        height: 250px; /* Ajusta la altura */
+        width: 700px; /* Ajusta el ancho */
+        height: 75px; /* Ajusta la altura */
+        color: #ffffff;
+        /*font-size: 18px;*/
+        padding: 5px 10px;
+        margin-right: 15px;
+        /*margin-left: 15px;*/
+        margin-bottom: 10px;
+        background: none;
+        background-image: none;
+        border: 1px solid #a0b3b0;
+        border-radius: 0;
+        transition: border-color .25s ease, box-shadow .25s;
     }
 
      form{
@@ -24,6 +36,9 @@
         border-radius: 4px;
         margin: 40px auto;
         box-shadow: 0 4px 10px 4px rgba(19, 35, 47,.3);
+
+        max-width: 980px; 
+        width: 90%; 
        
     }
 
@@ -43,8 +58,8 @@
         color: #ffffff;
         /*font-size: 18px;*/
         padding: 5px 10px;
-        /*margin-right: 15px;*/
-        margin-left: 15px;
+        margin-right: 15px;
+        /*margin-left: 15px;*/
         margin-bottom: 10px;
         background: none;
         background-image: none;
@@ -87,90 +102,195 @@
         margin-left: -1px;
     }
 
+
+    .Boton{
+        display: block;
+        border: 0;
+        outline: none;
+        border-radius: 0;
+        padding: 15px;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: .1em;
+        background: #1ab188;
+        color: #ffffff;
+        transition: all.5s ease;
+        -webkit-appearance: none;
+         /* Establece un ancho fijo según tus necesidades */
+        margin: 0 auto; /* Centra el botón */
+    }
+
+    .text_danger {
+        color: red;
+        font-size: 12px; /* Ajusta el tamaño del texto del error */
+       
+       
+    }
+
+    .input-container {
+        display: flex;
+        justify-content: space-between; /* Espacio entre los inputs */
+    }
+
+   .input-container div {
+            display: flex;
+            flex-direction: column; /* Asegura que los inputs y mensajes de error estén alineados verticalmente */
+            width: 100%; /* Asegura que los divs dentro del contenedor tomen el espacio disponible */
+   }
+
+    .cedula-genero-fechaNacimiento{
+        display: flex;
+        gap: 20px; /* Espacio entre los elementos */
+       
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .datos-laborales {
+        display: flex;
+        gap: 20px; /* Espacio entre los elementos */
+        margin-bottom: 20px;
+    }
+     
+    .direccion {
+        display: flex;
+        gap: 20px; /* Espacio entre los elementos */
+        margin-bottom: 20px;
+    }
+
 </style>
 <div class="container">
     <form method="POST">
         <h1>Agregar Empleado</h1>
         <h2>Datos Personales</h2>
-        <input type="text" id="primerNombre" asp-for="primerNombre" , value="@Model.primerNombre" placeholder="Primer Nombre">
-        <span asp-validation-for="primerNombre" class="text_danger"></span>
+        <div class="input-container">
+            <div>
+            <input type="text" id="primerNombre" asp-for="primerNombre"  value="@Model.primerNombre" placeholder="Primer Nombre"/>
+            <span asp-validation-for="primerNombre" class="text_danger"></span>
+            </div>
 
-        <input type="text" id="segundoNombre" asp-for="segundoNombre" , value="@Model.segundoNombre" placeholder="Segundo Nombre">
-        <span asp-validation-for="segundoNombre" class="text_danger"></span>
+            <div>
+            <input type="text" id="segundoNombre" asp-for="segundoNombre"  value="@Model.segundoNombre" placeholder="Segundo Nombre">
+            <span asp-validation-for="segundoNombre" class="text_danger"></span>
+            </div>
 
+            <div>
+            <input type="text" id="primerApellido" asp-for="primerApellido"  value="@Model.primerApellido" placeholder="Primer Apellido">
+            <span asp-validation-for="primerApellido" class="text_danger"></span>
+            </div>
+            <div>
+            <input type="text" id="segundoApellido" asp-for="segundoApellido"  value="@Model.segundoApellido" placeholder="Segundo Apellido">
+            <span asp-validation-for="segundoApellido" class="text_danger"></span>
+            </div>
 
-
-        <input type="text" id="primerApellido" asp-for="primerApellido" , value="@Model.primerApellido" placeholder="Primer Apellido">
-        <span asp-validation-for="primerApellido" class="text_danger"></span>
-
-        <input type="text" id="segundoApellido" asp-for="segundoApellido" , value="@Model.segundoApellido" placeholder="Segundo Apellido">
-        <span asp-validation-for="segundoApellido" class="text_danger"></span>
+        </div>
         <br> <br />
 
-        <!--Cédula, género y fechaNacimiento-->
-        <label>Género</label>
-        <select id="generos" name="generos">
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Masculino</option>
-        </select>
-        <i class='bx bx-down-arrow-alt'></i>
-        <input type="text" id="cedula" asp-for="cedula" , value="@Model.cedula" placeholder="Número de Cédula">
-        <span asp-validation-for="cedula" class="text_danger"></span>
-        <input type="date" id="fecha" name="fecha" value="@fechaHoyH" max="@fechaHoyH" /><br> <br />
+
+        <div class="cedula-genero-fechaNacimiento">
+            <!--Cédula, género y fechaNacimiento-->
+            <div class="input-group">
+                <label for="generos">Género</label>
+                <select id="generos" name="generos">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="fecha">Fecha de Nacimiento</label>
+                <input type="date" id="fecha" name="fecha" value="@fechaHoyH" max="@fechaHoyH" />
+            </div>
+
+            <div class="input-group">
+                <label for="cedula">Cédula</label>
+                <input type="text" id="cedula" asp-for="cedula" value="@Model.cedula" placeholder="Número de Cédula">
+                <span asp-validation-for="cedula" class="text_danger"></span>
+            </div>
+        </div>
+        <br> <br />
        
+        
+
         <!--Combobox para la dirección-->
-        <H2>Dirección</H2>
-        <label>Provincia</label>
-        <select id="provincias" name="provincias" onchange="actualizarCantones()">
-            @foreach (var provincia in Model.direccion.provincias)
-            {
-                <option value="@provincia">@provincia</option>
-            }
-        </select>
+        <h2>Dirección</h2>
+        <div class="direccion">
+            
 
-        <!--Seleccionar Cantón-->
-        <label>Cantón</label>
-        <select id="cantones" name="cantones" onchange="actualizarDistritos()">
-            @foreach (var cantonSanJose in Model.direccion.cantonesSanJose)
-            {
-                <option value="@cantonSanJose">@cantonSanJose</option>
-            }
-        </select>
+            <div class="input-group">
+                <label for="provincias">Provincia</label>
+                <select id="provincias" name="provincias" onchange="actualizarCantones()">
+                    @foreach (var provincia in Model.direccion.provincias)
+                    {
+                        <option value="@provincia">@provincia</option>
+                    }
+                </select>
+            </div>
 
-        <!--Seleccionar Distrito-->
-        <label>Distrito</label>
-        <select id="distritos" name="distritos" >
-            @foreach (var distritosSanJose in Model.direccion.distritosSanJose)
-            {
-            <option value="@distritosSanJose">@distritosSanJose</option>
-            }
-        </select>
+            <div class="input-group">
+                <label for="cantones">Cantón</label>
+                <select id="cantones" name="cantones" onchange="actualizarDistritos()">
+                    @foreach (var cantonSanJose in Model.direccion.cantonesSanJose)
+                    {
+                        <option value="@cantonSanJose">@cantonSanJose</option>
+                    }
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="distritos">Distrito</label>
+                <select id="distritos" name="distritos">
+                    @foreach (var distritosSanJose in Model.direccion.distritosSanJose)
+                    {
+                        <option value="@distritosSanJose">@distritosSanJose</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+
         <br> <br />
         <!--Señas exactas-->
-        <input type="text" name="seniasExactas" class="campoGrande" placeholder="Señas exactas" />
+        <textarea class="campoGrande" placeholder="Señas Exactas"></textarea>
 
         <!--Departamento y puesto-->
         <h2>Datos Laborales</h2>
-        <label>Departamento</label>
-        <select id="departamentos" name="departamentos">
-            <option value="Recursos Humanos">Recursos Humanos</option>
-            <option value="Ventas">Ventas</option>
-            <option value="Producción">Producción</option>
-        </select>
-        
-        <label>Puesto</label>
-        <select id="puestos" name="puestos">
-            <option value="Recursos Humanos">Recursos Humanos</option>
-            <option value="Ventas">Ventas</option>
-            <option value="Producción">Producción</option>
-        </select>
-        <label>Salario</label>
-        <input type="text" id="salario" asp-for="salario" , value="@Model.salario" placeholder="Salario">
-        <span asp-validation-for="salario" class="text_danger"></span>
+        <div class="datos-laborales">
+            
+
+            <div class="input-group">
+                <label for="departamentos">Departamento</label>
+                <select id="departamentos" name="departamentos">
+                    <option value="Recursos Humanos">Recursos Humanos</option>
+                    <option value="Ventas">Ventas</option>
+                    <option value="Producción">Producción</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="puestos">Puesto</label>
+                <select id="puestos" name="puestos">
+                    <option value="Recursos Humanos">Recursos Humanos</option>
+                    <option value="Ventas">Ventas</option>
+                    <option value="Producción">Producción</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="salario">Salario</label>
+                <input type="text" id="salario" asp-for="salario" value="@Model.salario" placeholder="Salario">
+                <span asp-validation-for="salario" class="text_danger"></span>
+            </div>
+        </div>
 
         <!--Botón para registrar-->
         <br> <br />
-        <input class="Boton" type="submit" name="Registar" value="Registrar Usuario" />
+        <input class="Boton" type="submit" name="Registar" value="Registrar Empleado" />
     </form>
 
     
