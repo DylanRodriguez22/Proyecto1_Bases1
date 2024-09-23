@@ -1,7 +1,7 @@
 /*
 Name   : ERP
 Link   : https://github.com/DylanRodriguez22/Proyecto1_Bases1.git
-Version: 20/09/2024
+Version: 22/09/2024
 Autores: Yosimar Montenegro y Dylan Rodríguez
 --------------------------------------------------------------------
 */
@@ -23,15 +23,14 @@ GO
 
 -- Creacion de tablas
 
-CREATE TABLE RRHH.Departamento (
-	nombre VARCHAR (150) PRIMARY KEY NOT NULL,
+CREATE TABLE RRHH.Departamento ( -- Tabla catalogo_departamento
+	nombre VARCHAR (20) PRIMARY KEY NOT NULL,
 	codigo VARCHAR (10) NOT NULL
 );
 
-CREATE TABLE RRHH.Puesto (
+CREATE TABLE RRHH.Puesto ( -- Tabla catalogo_puesto_departamento
 	nombre VARCHAR (150) PRIMARY KEY NOT NULL,
-	nombreD_Departamento VARCHAR (150) NOT NULL,
-	salarioActual FLOAT
+	nombreD_Departamento VARCHAR (20) NOT NULL,
 	FOREIGN KEY (nombreD_Departamento) REFERENCES RRHH.Departamento(nombre)
 );
 
@@ -42,17 +41,13 @@ CREATE TABLE RRHH.Usuario (
 	segundoNombre VARCHAR (20) null,
 	primerApellido VARCHAR (20) NOT NULL,
 	segundoApellido VARCHAR (20) NOT NULL,
-	genero VARCHAR (10) NOT NULL,
 	provincia VARCHAR (20) NOT NULL,
 	canton VARCHAR (20) NOT NULL,
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL,
-
-	--Agregadas posteriormente
 	fechaRegistro DATE NOT NULL,
 	fechaDeNacimiento DATE NOT NULL,
 	salarioActual FLOAT NOT NULL,
-	--
 
 	-- CREDENCIALES 
 	usuario VARCHAR (15),
@@ -60,7 +55,6 @@ CREATE TABLE RRHH.Usuario (
 	FOREIGN KEY (nombrePuesto_Puesto) REFERENCES RRHH.Puesto(nombre)
 	CONSTRAINT AK_Usuario UNIQUE(usuario)
 );
-
 
 CREATE TABLE RRHH.Pago (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
@@ -93,6 +87,10 @@ CREATE TABLE RRHH.HistoricoSalario (
 	
 );
 
+/*
+Creacion de tablas del schema Ventas
+*/
+
 CREATE TABLE Ventas.Cliente (
 	cedula VARCHAR (20) PRIMARY KEY NOT NULL,
 	tipoCedula VARCHAR(10) NOT NULL,
@@ -107,11 +105,17 @@ CREATE TABLE Ventas.Cliente (
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL
 );
+
 -- Tabla del multievaluado Telefonos
 CREATE TABLE Ventas.TelefonosCliente (
 	numeroTelefono VARCHAR (20) PRIMARY KEY NOT NULL,
 	duenio_Cliente VARCHAR (20) NOT NULL,
 	FOREIGN KEY (duenio_Cliente) REFERENCES Ventas.Cliente(cedula)
+);
+
+CREATE TABLE Ventas.Genero ( -- Tabla catalogo_Genero
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (10) NOT NULL,
 );
 
 CREATE TABLE Ventas.Cotizacion (
@@ -141,6 +145,16 @@ CREATE TABLE Ventas.Tarea (
 	descripcion VARCHAR (100) NOT NULL,
 	etapa VARCHAR (25),
 	FOREIGN KEY (IDCaso_Caso) REFERENCES Ventas.Caso(ID)
+);
+
+CREATE TABLE Ventas.Estado ( -- Tabla catalogo_Estado
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (20) NOT NULL
+);
+
+CREATE TABLE Ventas.Etapa ( -- Tabla catalogo_Etapa
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE Ventas.Factura (
@@ -254,4 +268,9 @@ CREATE TABLE Ventas.FacturaInventario (
 	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Factura(ID),
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
+);
+
+CREATE TABLE Ventas.TipoCedula ( -- Tabla catalogo_tipoCedula
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	tipo VARCHAR (50) NOT NULL
 );
