@@ -1,7 +1,7 @@
 /*
 Name   : ERP
 Link   : https://github.com/DylanRodriguez22/Proyecto1_Bases1.git
-Version: 22/09/2024
+Version: 23/09/2024
 Autores: Yosimar Montenegro y Dylan Rodríguez
 --------------------------------------------------------------------
 */
@@ -118,13 +118,33 @@ CREATE TABLE Ventas.Genero ( -- Tabla catalogo_Genero
 	descripcion VARCHAR (10) NOT NULL,
 );
 
+CREATE TABLE Ventas.Zona ( -- Tabla catalogo_zona
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE Ventas.Sector ( -- Tabla catalogo_srctor
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (25) NOT NULL
+);
+
+CREATE TABLE Ventas.Probabilidad (
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion INT NOT NULL
+);
+
 CREATE TABLE Ventas.Cotizacion (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	cedulaCotizador_Cliente VARCHAR (20) NOT NULL,
 	cedulaEmpleado_Usuario VARCHAR (20) NOT NULL,
 	montoTotal INT,
 	fechaCierreProyectada DATE NOT NULL,
-	fechaHora DATETIME NOT NULL
+	fechaCierre DATE,
+	fechaHora DATETIME NOT NULL,
+	probabilidad INT NOT NULL,
+	descripcion VARCHAR (255),
+	zona VARCHAR (50) NOT NULL,
+	sector VARCHAR (25) NOT NULL,	
 	FOREIGN KEY (cedulaCotizador_Cliente) REFERENCES Ventas.Cliente(cedula),
 	FOREIGN KEY (cedulaEmpleado_Usuario) REFERENCES RRHH.Usuario(cedula)
 );

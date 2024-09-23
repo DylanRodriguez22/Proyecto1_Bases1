@@ -10,8 +10,8 @@ GO
 
 INSERT INTO Ventas.TipoCedula (tipo)
 VALUES
-('Cédula Física'),
-('Cédula Jurídica');
+('Física'),
+('Jurídica');
 
 INSERT INTO RRHH.Departamento (nombre, codigo)
 VALUES 
@@ -37,3 +37,27 @@ VALUES
 ('Pendiente'),
 ('En proceso'),
 ('Realizada')
+
+INSERT INTO Ventas.Sector (descripcion)
+VALUES
+('Agropecuario'),
+('Construcción'),
+('Agricultura'),
+('Comercio');
+
+INSERT INTO Ventas.Zona (descripcion)
+VALUES
+('Región Central'),
+('Región Chorotega'),
+('Región Pacífico Central'),
+('Región Brunca'),
+('Región Huetar Atlántica'),
+('Región Huetar Norte');
+
+INSERT INTO Ventas.Probabilidad (descripcion)
+VALUES
+(0),
+(25),
+(50),
+(75),
+(100);
