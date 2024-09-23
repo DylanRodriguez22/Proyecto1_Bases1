@@ -1,7 +1,7 @@
 /*
 Name   : ERP
 Link   : https://github.com/DylanRodriguez22/Proyecto1_Bases1.git
-Version: 22/09/2024
+Version: 23/09/2024
 Autores: Yosimar Montenegro y Dylan Rodríguez
 --------------------------------------------------------------------
 */
@@ -41,6 +41,7 @@ CREATE TABLE RRHH.Usuario (
 	segundoNombre VARCHAR (20) null,
 	primerApellido VARCHAR (20) NOT NULL,
 	segundoApellido VARCHAR (20) NOT NULL,
+	email VARCHAR (50) NOT NULL,
 	provincia VARCHAR (20) NOT NULL,
 	canton VARCHAR (20) NOT NULL,
 	distrito VARCHAR (20) NOT NULL,
@@ -99,6 +100,7 @@ CREATE TABLE Ventas.Cliente (
 	segundoNombre VARCHAR (20),
 	primerApellido VARCHAR (20),
 	segundoApellido VARCHAR (20),
+	email VARCHAR (50) NOT NULL,
 	genero VARCHAR (10) NOT NULL,
 	provincia VARCHAR (20) NOT NULL,
 	canton VARCHAR (20) NOT NULL,
@@ -118,13 +120,33 @@ CREATE TABLE Ventas.Genero ( -- Tabla catalogo_Genero
 	descripcion VARCHAR (10) NOT NULL,
 );
 
+CREATE TABLE Ventas.Zona ( -- Tabla catalogo_zona
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE Ventas.Sector ( -- Tabla catalogo_srctor
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (25) NOT NULL
+);
+
+CREATE TABLE Ventas.Probabilidad (
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion INT NOT NULL
+);
+
 CREATE TABLE Ventas.Cotizacion (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	cedulaCotizador_Cliente VARCHAR (20) NOT NULL,
 	cedulaEmpleado_Usuario VARCHAR (20) NOT NULL,
 	montoTotal INT,
 	fechaCierreProyectada DATE NOT NULL,
-	fechaHora DATETIME NOT NULL
+	fechaCierre DATE,
+	fechaHora DATETIME NOT NULL,
+	probabilidad INT NOT NULL,
+	descripcion VARCHAR (255),
+	zona VARCHAR (50) NOT NULL,
+	sector VARCHAR (25) NOT NULL,	
 	FOREIGN KEY (cedulaCotizador_Cliente) REFERENCES Ventas.Cliente(cedula),
 	FOREIGN KEY (cedulaEmpleado_Usuario) REFERENCES RRHH.Usuario(cedula)
 );
@@ -266,6 +288,16 @@ CREATE TABLE Ventas.FacturaInventario (
 	codigoB_Bodega VARCHAR (10) NOT NULL,
 	cantidadProducto INT NOT NULL,
 	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Factura(ID),
+	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
+	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
+);
+
+CREATE TABLE Ventas.CotizacionInventario ( -- Sirve como orden de compra
+	ID_Cotizacion INT NOT NULL,
+	nombreA_Articulo VARCHAR (130) NOT NULL,
+	codigoB_Bodega VARCHAR (10) NOT NULL,
+	cantidadProducto INT NOT NULL,
+	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Cotizacion(ID),
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
 );
