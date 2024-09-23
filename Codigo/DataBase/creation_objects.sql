@@ -23,15 +23,14 @@ GO
 
 -- Creacion de tablas
 
-CREATE TABLE RRHH.Departamento (
-	nombre VARCHAR (150) PRIMARY KEY NOT NULL,
+CREATE TABLE RRHH.Departamento ( -- Tabla catalogo_departamento
+	nombre VARCHAR (20) PRIMARY KEY NOT NULL,
 	codigo VARCHAR (10) NOT NULL
 );
 
-CREATE TABLE RRHH.Puesto (
+CREATE TABLE RRHH.Puesto ( -- Tabla catalogo_puesto_departamento
 	nombre VARCHAR (150) PRIMARY KEY NOT NULL,
-	nombreD_Departamento VARCHAR (150) NOT NULL,
-	salarioActual FLOAT
+	nombreD_Departamento VARCHAR (20) NOT NULL,
 	FOREIGN KEY (nombreD_Departamento) REFERENCES RRHH.Departamento(nombre)
 );
 
@@ -42,17 +41,13 @@ CREATE TABLE RRHH.Usuario (
 	segundoNombre VARCHAR (20) NOT NULL,
 	primerApellido VARCHAR (20) NOT NULL,
 	segundoApellido VARCHAR (20) NOT NULL,
-	genero VARCHAR (10) NOT NULL,
 	provincia VARCHAR (20) NOT NULL,
 	canton VARCHAR (20) NOT NULL,
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL,
-
-	--Agregadas posteriormente
 	fechaRegistro DATE NOT NULL,
 	fechaDeNacimiento DATE NOT NULL,
 	salarioActual FLOAT NOT NULL,
-	--
 
 	-- CREDENCIALES 
 	usuario VARCHAR (15),
@@ -60,7 +55,6 @@ CREATE TABLE RRHH.Usuario (
 	FOREIGN KEY (nombrePuesto_Puesto) REFERENCES RRHH.Puesto(nombre)
 	CONSTRAINT AK_Usuario UNIQUE(usuario)
 );
-
 
 CREATE TABLE RRHH.Pago (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
@@ -93,6 +87,10 @@ CREATE TABLE RRHH.HistoricoSalario (
 	
 );
 
+/*
+Creacion de tablas del schema Ventas
+*/
+
 CREATE TABLE Ventas.Cliente (
 	cedula VARCHAR (20) PRIMARY KEY NOT NULL,
 	tipoCedula VARCHAR(10) NOT NULL,
@@ -107,11 +105,17 @@ CREATE TABLE Ventas.Cliente (
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL
 );
+
 -- Tabla del multievaluado Telefonos
 CREATE TABLE Ventas.TelefonosCliente (
 	numeroTelefono VARCHAR (20) PRIMARY KEY NOT NULL,
 	duenio_Cliente VARCHAR (20) NOT NULL,
 	FOREIGN KEY (duenio_Cliente) REFERENCES Ventas.Cliente(cedula)
+);
+
+CREATE TABLE Ventas.Genero ( -- Tabla catalogo_Genero
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (10) NOT NULL,
 );
 
 CREATE TABLE Ventas.Cotizacion (
@@ -141,6 +145,16 @@ CREATE TABLE Ventas.Tarea (
 	descripcion VARCHAR (100) NOT NULL,
 	etapa VARCHAR (25),
 	FOREIGN KEY (IDCaso_Caso) REFERENCES Ventas.Caso(ID)
+);
+
+CREATE TABLE Ventas.Estado ( -- Tabla catalogo_Estado
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (20) NOT NULL
+);
+
+CREATE TABLE Ventas.Etapa ( -- Tabla catalogo_Etapa
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE Ventas.Factura (
@@ -255,3 +269,48 @@ CREATE TABLE Ventas.FacturaInventario (
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
 );
+
+CREATE TABLE Ventas.TipoCedula ( -- Tabla catalogo_tipoCedula
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	tipo VARCHAR (50) NOT NULL
+);
+
+/*
+Inserts en las tablas catalogo no modificables.
+
+Funcionalidad: Cada tabla posee una PK que la identifica (en su mayoría ID Integers), lo cual permite hacer agrupamientos rapidos
+			   Por cada tabla puede consultarse de forma generar para llenar ComboBoxes necesarios, Pero no pueden modificarse, unicamente Consultas, Deletes E Inserts.
+*/
+
+USE ERP
+GO
+
+INSERT INTO Ventas.TipoCedula (tipo)
+VALUES
+('Cédula Física'),
+('Cédula Jurídica');
+
+INSERT INTO RRHH.Departamento (nombre, codigo)
+VALUES 
+('Recursos Humanos', 'D1'),
+('Produccion', 'D2'),
+('Ventas', 'D3');
+
+INSERT INTO Ventas.Genero (descripcion)
+VALUES 
+('Masculino'),
+('Femenino'),
+('Otro');
+
+INSERT INTO Ventas.Estado (descripcion)
+VALUES
+('Aceptada'),
+('Rechazada'),
+('En proceso'),
+('Anulada');
+
+INSERT INTO Ventas.Etapa (descripcion)
+VALUES
+('Pendiente'),
+('En proceso'),
+('Realizada')
