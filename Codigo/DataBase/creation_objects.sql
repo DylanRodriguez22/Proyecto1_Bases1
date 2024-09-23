@@ -292,6 +292,16 @@ CREATE TABLE Ventas.FacturaInventario (
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
 );
 
+CREATE TABLE Ventas.CotizacionInventario ( -- Sirve como orden de compra
+	ID_Cotizacion INT NOT NULL,
+	nombreA_Articulo VARCHAR (130) NOT NULL,
+	codigoB_Bodega VARCHAR (10) NOT NULL,
+	cantidadProducto INT NOT NULL,
+	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Cotizacion(ID),
+	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
+	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
+);
+
 CREATE TABLE Ventas.TipoCedula ( -- Tabla catalogo_tipoCedula
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	tipo VARCHAR (50) NOT NULL
