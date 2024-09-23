@@ -1,22 +1,14 @@
 using ERP.Pages.Objetos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 
 namespace ERP.Pages.RRHH
 {
-    public class PlanillaModel : PageModel
+    public class HistoricoDeSalariosModel : PageModel
     {
         public List<Empleado> empleados = new List<Empleado>();
         public BaseDeDatos baseDeDatos = new BaseDeDatos();
-
-        [BindProperty]
-        [RegularExpression("^\\d+$", ErrorMessage = "Las horas regulares solo deben contener números.")]
-        public string horasRegulares { get; set; } = "";
-        [BindProperty]
-        [RegularExpression("^\\d+$", ErrorMessage = "Las horas extras solo deben contener números.")]
-        public string horasExtras { get; set; } = "";
         public void OnGet()
         {
             empleadosRegistrados();

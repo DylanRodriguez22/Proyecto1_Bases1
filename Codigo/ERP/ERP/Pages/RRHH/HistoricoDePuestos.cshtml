@@ -1,5 +1,5 @@
 ﻿@page
-@model ERP.Pages.RRHH.ClientesModel
+@model ERP.Pages.RRHH.HistoricoDePuestosModel
 @{
     Layout = "_LayoutRRHH";
 }
@@ -111,8 +111,8 @@
 </style>
 <div class="container">
     <div class="table_header">
-        <h2>Clientes</h2>
-        <button class="BotonCrearNuevo" onclick="abrirVentana('RegistrarCliente')">Agregar Cliente</button>
+        <h2>Empleados</h2>
+        <button class="BotonCrearNuevo" onclick="abrirVentana('RegistrarEmpleado')">Crear nuevo</button>
         <select name="" id="">
             <option value="" selected>Tipo</option>
             <option value="">Tipo1</option>
@@ -127,36 +127,29 @@
         <thead>
             <tr>
                 <th>Cédula</th>
-                <th>Tipo</th>
                 <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Departamento</th>
+                <th>Puesto</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var cliente in Model.clientes)
+            @foreach (var empleado in Model.empleados)
             {
-                @if (cliente.tipo)
-                {
-                    <tr>
-                        <td>@cliente.cedula</td>
-                        <td>@cliente.tipoCedula</td>
-                        <td>@cliente.nombre  @cliente.primerApellido  @cliente.segundoApellido</td>
-                    </tr>
-                }
-                else
-                {
-                    <tr>
-                        <td>@cliente.cedula</td>
-                        <td>@cliente.tipoCedula</td>
-                        <td>@cliente.nombre</td>
-                    </tr>
-                }
-                
+                <tr>
+                    <td>@empleado.cedula</td>
+                    <td>@empleado.nombre</td>
+                    <td>@empleado.apellido1</td>
+                    <td>@empleado.apellido2</td>
+                    <td>@empleado.departamento</td>
+                    <td>@empleado.puesto</td>
+                </tr>
             }
-            
         </tbody>
     </table>
     <div class="table_fotter">
-        <p>Total de clientes : @Model.clientes.Count()</p>
+        <p>Total de empleados : @Model.empleados.Count()</p>
     </div>
 </div>
 
@@ -166,3 +159,4 @@
         window.location.href = ventana;
     }
 </script>
+
