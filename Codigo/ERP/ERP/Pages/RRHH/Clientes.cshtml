@@ -112,7 +112,7 @@
 <div class="container">
     <div class="table_header">
         <h2>Clientes</h2>
-        <button class="BotonCrearNuevo">Crear nuevo</button>
+        <button class="BotonCrearNuevo" onclick="abrirVentana('RegistrarCliente')">Crear nuevo</button>
         <select name="" id="">
             <option value="" selected>Tipo</option>
             <option value="">Tipo1</option>
@@ -159,3 +159,10 @@
         <p>Total de clientes : @Model.clientes.Count()</p>
     </div>
 </div>
+
+<script>
+    function abrirVentana(ventana) {
+
+        window.location.href = ventana;
+    }
+</script>
