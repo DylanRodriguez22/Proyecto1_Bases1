@@ -105,7 +105,7 @@
 <div class="container">
     <div class="table_header">
         <h2>Empleados</h2>
-        <button class="BotonCrearNuevo">Crear nuevo</button>
+        <button class="BotonCrearNuevo" onclick="abrirVentana('RegistrarEmpleado')">Crear nuevo</button>
         <select name="" id="">
             <option value="" selected>Tipo</option>
             <option value="">Tipo1</option>
@@ -146,4 +146,10 @@
     </div>
 </div>
 
+<script>
+    function abrirVentana(ventana) {
+
+        window.location.href = ventana;
+    }
+</script>
 
