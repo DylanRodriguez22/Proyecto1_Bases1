@@ -39,7 +39,7 @@ CREATE TABLE RRHH.Usuario (
 	cedula VARCHAR (20) PRIMARY KEY NOT NULL,
 	nombrePuesto_Puesto VARCHAR (150),
 	primerNombre VARCHAR (20) NOT NULL,
-	segundoNombre VARCHAR (20) NOT NULL,
+	segundoNombre VARCHAR (20) null,
 	primerApellido VARCHAR (20) NOT NULL,
 	segundoApellido VARCHAR (20) NOT NULL,
 	genero VARCHAR (10) NOT NULL,

@@ -11,10 +11,12 @@ namespace ERP
         public BaseDeDatos() {
             constructor = new();
             constructor.DataSource = "DESKTOP-1UDLPMT";
-            constructor.InitialCatalog = "Formulario";
+            constructor.InitialCatalog = "ERP";
             constructor.IntegratedSecurity = true;
             constructor.TrustServerCertificate = true;
             stringConexion = constructor.ConnectionString;
         }
+
+
     }
 }

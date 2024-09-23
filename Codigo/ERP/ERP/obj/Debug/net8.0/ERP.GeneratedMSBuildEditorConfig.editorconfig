@@ -34,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjY2lvblxQYWdpbmFQcmluY2lwYWxQcm9kdWNjaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/Clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxDbGllbnRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/Empleados.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxFbXBsZWFkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/Planilla.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxQbGFuaWxsYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/RegistrarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxSZWdpc3RyYXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/RegistrarEmpleado.cshtml]
