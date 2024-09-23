@@ -265,19 +265,20 @@
 
             <div class="input-group">
                 <label for="departamentos">Departamento</label>
-                <select id="departamentos" name="departamentos">
+                <select id="departamentos" name="departamentos" onchange="actualizarPuestos()">
                     <option value="Recursos Humanos">Recursos Humanos</option>
                     <option value="Ventas">Ventas</option>
-                    <option value="Producción">Producción</option>
+                    <option value="Produccion">Producción</option>
                 </select>
             </div>
 
             <div class="input-group">
                 <label for="puestos">Puesto</label>
                 <select id="puestos" name="puestos">
-                    <option value="Recursos Humanos">Recursos Humanos</option>
-                    <option value="Ventas">Ventas</option>
-                    <option value="Producción">Producción</option>
+                    @foreach (var puesto in Model.puestosRRHH)
+                    {
+                        <option value="@puesto">@puesto</option>
+                    }
                 </select>
             </div>
 
@@ -297,6 +298,32 @@
 </div>
 
 <script>
+    function actualizarPuestos() {
+        var departamento = document.getElementById("departamentos").value;
+        var puestos = document.getElementById("puestos");
+        puestos.innerHTML = '';
+
+        var listaPuestos = [];
+        switch (departamento) {
+            case "Recursos Humanos":
+                listaPuestos = @Html.Raw(Json.Serialize(Model.puestosRRHH));
+                break;
+            case "Ventas":
+                listaPuestos = @Html.Raw(Json.Serialize(Model.puestosVentas));
+                break;
+            case "Produccion":
+                listaPuestos = @Html.Raw(Json.Serialize(Model.puestosProduccion));
+                break;
+        }
+
+        listaPuestos.forEach(function (puesto) {
+            var option = document.createElement("option");
+            option.value = puesto;
+            option.text = puesto;
+            puestos.add(option);
+        });
+    }
+
     function actualizarCantones() {
         var provincia = document.getElementById("provincias").value;
         var cantones = document.getElementById("cantones");
@@ -637,3 +664,9 @@
         
     }
 </script>
+
+
+@if (Model.ErrorMensaje != null)
+{
+    <p style="color: red;">Error: @Model.ErrorMensaje</p>
+}

@@ -1,0 +1,218 @@
+﻿@page
+@model ERP.Pages.RRHH.RegistrarClienteModel
+@{
+    Layout = "_LayoutRRHH";
+}
+<style>
+
+    
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .contenedorPrincipal {
+        background: rgba(19, 35, 47,.9);
+        padding: 40px;
+        border-radius: 4px;
+        margin: 40px auto;
+        box-shadow: 0 4px 10px 4px rgba(19, 35, 47,.3);
+        max-width: 980px;
+        width: 90%;
+    }
+
+
+    h1 {
+        color: #ffffff;
+        text-align: center;
+        margin:20px;
+    }
+
+    /* Para mostrar la parte de personal por defecto */
+    .seccionPersonal {
+        display: block;
+    }
+
+    .seccionJuridica {
+        display: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #ccc;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        /* Estilo del botón activo */
+        button.active {
+            background-color: #1ab188;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #999;
+        }
+
+        .contenedorBotones{
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Separación entre los botones */
+        }
+
+    input {
+        color: #ffffff;
+        /*font-size: 18px;*/
+        padding: 5px 10px;
+        margin-right: 15px;
+        /*margin-left: 15px;*/
+        margin-bottom: 10px;
+        background: none;
+        background-image: none;
+        border: 1px solid #a0b3b0;
+        border-radius: 0;
+        transition: border-color .25s ease, box-shadow .25s;
+    }
+
+    .seccionPersonal .nombre {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .seccionPersonal .nombre div {
+            display: flex;
+            flex-direction: column; /* Asegura que los inputs y mensajes de error estén alineados verticalmente */
+            
+    }
+
+    .Boton {
+        display: block;
+        border: 0;
+        outline: none;
+        border-radius: 0;
+        padding: 15px;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: .1em;
+        background: #1ab188;
+        color: #ffffff;
+        transition: all.5s ease;
+        -webkit-appearance: none;
+        /* Establece un ancho fijo según tus necesidades */
+        margin: 0 auto; /* Centra el botón */
+    }
+
+    .cedula-genero {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Espacio entre los elementos */
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+    }
+
+    label {
+        color: #ffffff;
+        /*margin-right: 15px;*/
+        /*margin-left: 15px;*/
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .text_danger {
+        color: red;
+        font-size: 12px; /* Ajusta el tamaño del texto del error */
+    }
+
+</style>
+
+<div class="contenedorPrincipal" id="contenedorPrincipal">
+    <h1>Registrar cliente</h1>
+    <div class="contenedorBotones">
+        <button id="botonPersonal" class="active" onclick="mostrarSeccion('seccionPersonal', this)">Personal</button>
+        <button id="botonJuridica" onclick="mostrarSeccion('seccionJuridica', this)">Jurídica</button>
+    </div>
+    <br />
+    <div class="seccionPersonal" id="seccionPersonal">
+        
+        <form method="POST">
+            <div class="nombre">
+                <div>
+                    <input type="text" id="primerNombre" asp-for="primerNombre" value="@Model.primerNombre" placeholder="Primer Nombre" />
+                    <span asp-validation-for="primerNombre" class="text_danger"></span>
+                </div>
+
+                <div>
+                    <input type="text" id="segundoNombre" asp-for="segundoNombre" value="@Model.segundoNombre" placeholder="Segundo Nombre">
+                    <span asp-validation-for="segundoNombre" class="text_danger"></span>
+                </div>
+
+                <div>
+                    <input type="text" id="primerApellido" asp-for="primerApellido" value="@Model.primerApellido" placeholder="Primer Apellido">
+                    <span asp-validation-for="primerApellido" class="text_danger"></span>
+                </div>
+                <div>
+                    <input type="text" id="segundoApellido" asp-for="segundoApellido" value="@Model.segundoApellido" placeholder="Segundo Apellido">
+                    <span asp-validation-for="segundoApellido" class="text_danger"></span>
+                </div>
+            </div>
+            <br> <br />
+
+            <div class="cedula-genero">
+                <!--Cédula, género y fechaNacimiento-->
+                <div class="input-group">
+                    <label for="generos">Género</label>
+                    <select id="generos" name="generos">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="cedula">Cédula</label>
+                    <input type="text" id="cedula" asp-for="cedula" value="@Model.cedula" placeholder="Número de Cédula">
+                    <span asp-validation-for="cedula" class="text_danger"></span>
+                </div>
+            </div>
+
+
+
+            <input class="Boton" type="submit" name="Registar" value="Registrar Empleado" />
+        </form>
+    </div>
+
+    <div class="seccionJuridica" id="seccionJuridica">
+        <form method="POST">
+            <h1>Jurídica</h1>
+            <!-- Formulario para la sección jurídica -->
+        </form>
+    </div>
+
+</div>
+
+<script>
+    function mostrarSeccion(seccion, boton) {
+        // Ocultar todas las secciones
+        document.querySelectorAll('.seccionPersonal, .seccionJuridica').forEach(function (section) {
+            section.style.display = 'none';
+        });
+
+        // Mostrar la sección correspondiente
+        document.getElementById(seccion).style.display = 'block';
+
+        // Quitar la clase 'active' de todos los botones
+        document.querySelectorAll('#contenedorPrincipal button').forEach(function (boton) {
+            boton.classList.remove('active');
+        });
+
+        // Añadir la clase 'active' al botón presionado
+        boton.classList.add('active');
+    }
+</script>

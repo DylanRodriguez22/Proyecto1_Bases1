@@ -119,72 +119,30 @@
     <table>
         <thead>
             <tr>
-                <th>Nombre de producto</th>
-                <th>Tipo </th>
-                <th>Localización </th>
-                <th>Precio </th>
-                <th>Operaciones </th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Departamento</th>
+                <th>Puesto</th>
             </tr>
         </thead>
         <tbody>
+            @foreach (var empleado in Model.empleados)
+            {
             <tr>
-                <td>Producto01</td>
-                <td>TipoProducto01</td>
-                <td>LocalProducto01</td>
-                <td>PrecioProducto01</td>
-                <td>
-                    <i class='bx bx-edit-alt'></i>
-                </td>
+                 <td>@empleado.cedula</td>
+                 <td>@empleado.nombre</td>
+                 <td>@empleado.apellido1</td>  
+                 <td>@empleado.apellido2</td>  
+                 <td>@empleado.departamento</td>
+                 <td>@empleado.puesto</td>
             </tr>
-            <tr>
-                <td>Producto01</td>
-                <td>TipoProducto01</td>
-                <td>LocalProducto01</td>
-                <td>PrecioProducto01</td>
-                <td>
-                    <i class='bx bx-edit-alt'></i>
-                </td>
-            </tr>
-            <tr>
-                <td>Producto01</td>
-                <td>TipoProducto01</td>
-                <td>LocalProducto01</td>
-                <td>PrecioProducto01</td>
-                <td>
-                    <i class='bx bx-edit-alt'></i>
-                </td>
-            </tr>
-            <tr>
-                <td>Producto01</td>
-                <td>TipoProducto01</td>
-                <td>LocalProducto01</td>
-                <td>PrecioProducto01</td>
-                <td>
-                    <i class='bx bx-edit-alt'></i>
-                </td>
-            </tr>
-            <tr>
-                <td>Producto01</td>
-                <td>TipoProducto01</td>
-                <td>LocalProducto01</td>
-                <td>PrecioProducto01</td>
-                <td>
-                    <i class='bx bx-edit-alt'></i>
-                </td>
-            </tr>
-            <tr>
-                <td>Producto01</td>
-                <td>TipoProducto01</td>
-                <td>LocalProducto01</td>
-                <td>PrecioProducto01</td>
-                <td>
-                    <i class='bx bx-edit-alt'></i>
-                </td>
-            </tr>
+            }
         </tbody>
     </table>
     <div class="table_fotter">
-        <p>Total de filas : 06</p>
+        <p>Total de empleados : @Model.empleados.Count()</p>
     </div>
 </div>
 

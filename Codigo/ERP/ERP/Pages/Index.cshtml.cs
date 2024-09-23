@@ -30,7 +30,7 @@ namespace ERP.Pages
             }
             else if (Usuario == "R" | Usuario == "r")
             {
-                return RedirectToPage("RRHH/RegistrarEmpleado");
+                return RedirectToPage("RRHH/RegistrarCliente");
             }
             else
             {
