@@ -2,19 +2,19 @@ namespace ERP.Pages.Objetos
 {
     public class Cotizacion
     {
-        public int ID { get; set; }
-        public string CedulaCliente { get; set; }
-        public string CedulaEmpleado { get; set; }
-        public int MontoTotal { get; set; }
-        public DateTime FechaCierreProyectada { get; set; }
-        public DateTime? FechaCierre { get; set; }
-        public DateTime FechaHora { get; set; }
-        public int Probabilidad { get; set; }
-        public string Descripcion { get; set; }
-        public string Zona { get; set; }
-        public string Sector { get; set; }
+        public int ID { get; set; } = 0;
+        public string CedulaCliente { get; set; } = string.Empty;
+        public string CedulaEmpleado { get; set; } = string.Empty;
+        public float MontoTotal { get; set; } = 0.0f;
+        public DateTime FechaCierreProyectada { get; set; } = DateTime.MinValue;
+        public DateTime? FechaCierre { get; set; } = null;
+        public DateTime FechaHora { get; set; } = DateTime.MinValue;
+        public int Probabilidad { get; set; } = 0;
+        public string Descripcion { get; set; } = string.Empty;
+        public string Zona { get; set; } = string.Empty;
+        public string Sector { get; set; } = string.Empty;
 
-        public Cotizacion(int id, string cedulaCliente, string cedulaEmpleado, int montoTotal, DateTime fechaCierreProyectada, DateTime fechaHora, int probabilidad, string descripcion, string zona, string sector, DateTime? fechaCierre = null)
+        public Cotizacion(int id, string cedulaCliente, string cedulaEmpleado, float montoTotal, DateTime fechaCierreProyectada, DateTime fechaHora, int probabilidad, string descripcion, string zona, string sector, DateTime? fechaCierre = null)
         {
             ID = id;
             CedulaCliente = cedulaCliente;
