@@ -42,6 +42,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxFbXBsZWFkb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/HistoricoDePuestos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxIaXN0b3JpY29EZVB1ZXN0b3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/HistoricoDeSalarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxIaXN0b3JpY29EZVNhbGFyaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/RRHH/PaginaPrincipalRRHH.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxQYWdpbmFQcmluY2lwYWxSUkhILmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
