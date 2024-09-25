@@ -344,7 +344,7 @@ CREATE TABLE Ventas.FacturaInventario (
 	nombreA_Articulo VARCHAR(130) NOT NULL,
 	codigoB_Bodega VARCHAR (10) NOT NULL,
 	cantidadProducto INT NOT NULL, --No puede ser menor a 0
-	precioProducto INT NOT NULL, --No puede ser menor a 0
+	precioProducto FLOAT NOT NULL, --No puede ser menor a 0
 	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Factura(ID),
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo),
