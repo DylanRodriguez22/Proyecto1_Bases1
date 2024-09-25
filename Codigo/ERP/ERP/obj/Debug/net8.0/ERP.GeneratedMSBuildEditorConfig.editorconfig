@@ -86,6 +86,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/Clientes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXENsaWVudGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/Cotizacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXENvdGl6YWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/Factura.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXEZhY3R1cmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/InventarioVentascshtml.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXEludmVudGFyaW9WZW50YXNjc2h0bWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/PaginaPrincipalVentas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXFBhZ2luYVByaW5jaXBhbFZlbnRhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
