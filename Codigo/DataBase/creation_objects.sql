@@ -1,7 +1,7 @@
 /*
 Name   : ERP
 Link   : https://github.com/DylanRodriguez22/Proyecto1_Bases1.git
-Version: 23/09/2024
+Version: 25/09/2024
 Autores: Yosimar Montenegro y Dylan Rodríguez
 --------------------------------------------------------------------
 */
@@ -172,6 +172,11 @@ CREATE TABLE Ventas.Cotizacion (
 	CONSTRAINT Chk_montoTotalMayor0 CHECK(montoTotal >0),
 	CONSTRAINT Chk_fechaCierreProyectadaMayorIgualHoy CHECK( fechaCierreProyectada >= CAST(GETDATE() AS DATE)),
 	CONSTRAINT Chk_fechaHoraRegistroIgualHoy CHECK(fechaHoraRegistro= GETDATE())
+);
+
+CREATE TABLE Ventas.TipoCotizacion (
+	ID INT IDENTITY (1, 1) PRIMARY KEY,
+	descripcion varchar (50) NOT NULL
 );
 
 CREATE TABLE Ventas.Caso (
