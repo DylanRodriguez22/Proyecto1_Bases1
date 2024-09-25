@@ -213,9 +213,10 @@ CREATE TABLE Ventas.Factura (
 	comprador_Usuario VARCHAR (20) NOT NULL,
 	fechaHora DATETIME DEFAULT GETDATE() NOT NULL,
 	estado VARCHAR (15),
+	montoTotal float NOT NULL,
 	motivoAnulacion VARCHAR (200) NOT NULL, -- En caso que la factura haya sido cancelada antes de su confirmación
 	FOREIGN KEY (responsable_Usuario) REFERENCES RRHH.Usuario(cedula),
-	FOREIGN KEY (comprador_Usuario) REFERENCES Ventas.Cliente(cedula),
+	FOREIGN KEY (comprador_Cliente) REFERENCES Ventas.Cliente(cedula),
 
 	--Checks
 	CONSTRAINT Chk_fechaHoraIgualHoy CHECK(fechaHora = GETDATE())
@@ -266,8 +267,8 @@ CREATE TABLE Produccion.Articulo (
 	nombre VARCHAR (130) PRIMARY KEY NOT NULL, -- Darle libertad de nombre por desconocer la empresa objetivo
 	codigoF_Familia VARCHAR (10) NOT NULL,
 	codigo INT NOT NULL,
-	precio INT NOT NULL,
-	peso INT NOT NULL,
+	precio float NOT NULL,
+	peso float NOT NULL,
 	descripcion VARCHAR (255) NOT NULL, -- Libertar de descripción de producto 
 	marca VARCHAR (50) NOT NULL,
 	activo VARCHAR (10),
@@ -359,7 +360,7 @@ CREATE TABLE Ventas.CotizacionInventario ( -- Sirve como orden de compra
 	nombreA_Articulo VARCHAR (130) NOT NULL,
 	codigoB_Bodega VARCHAR (10) NOT NULL,
 	cantidadProducto INT NOT NULL, --No puede ser menor a 0
-	precioProducto INT NOT NULL, --No puede ser menor a 0
+	precioProducto FLOAT NOT NULL, --No puede ser menor a 0
 	FOREIGN KEY (ID_Cotizacion) REFERENCES Ventas.Cotizacion(ID),
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo),
