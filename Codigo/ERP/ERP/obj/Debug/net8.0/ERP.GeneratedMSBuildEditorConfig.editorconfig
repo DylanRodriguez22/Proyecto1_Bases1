@@ -18,6 +18,38 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Dylan\Documents\Proyecto1_Bases1\Codigo\ERP\ERP
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/Familias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxGYW1pbGlhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/InsertarFamilias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxJbnNlcnRhckZhbWlsaWFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/InsertarPuesto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxJbnNlcnRhclB1ZXN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/InsertarSector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxJbnNlcnRhclNlY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/InsertarZonas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxJbnNlcnRhclpvbmFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/PaginaPrincipal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxQYWdpbmFQcmluY2lwYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/Sector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxTZWN0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Administrador/Zonas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5pc3RyYWRvclxab25hcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUlJISFxSZWdpc3RyYXJFbXBsZWFkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Shared/_LayoutAdministrador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRBZG1pbmlzdHJhZG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Shared/_LayoutProduccion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRQcm9kdWNjaW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -92,6 +128,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/Cotizacion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXENvdGl6YWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/CrearCotizacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVudGFzXENyZWFyQ290aXphY2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dylan/Documents/Proyecto1_Bases1/Codigo/ERP/ERP/Pages/Ventas/Factura.cshtml]

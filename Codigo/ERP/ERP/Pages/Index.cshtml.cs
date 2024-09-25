@@ -32,6 +32,11 @@ namespace ERP.Pages
             {
                 return RedirectToPage("RRHH/Empleados");
             }
+            else if (Usuario == "A" | Usuario == "a"){
+
+                return RedirectToPage("Administrador/PaginaPrincipal");
+            }
+
             else
             {
                 return RedirectToPage("Produccion/PaginaPrincipalProduccion");
