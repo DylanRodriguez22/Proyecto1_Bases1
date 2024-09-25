@@ -47,45 +47,63 @@ CREATE TABLE RRHH.Usuario (
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL,
 	fechaRegistro DATE NOT NULL,
-	fechaDeNacimiento DATE NOT NULL,
-	salarioActual FLOAT NOT NULL,
+	fechaNacimiento DATE NOT NULL, 
+	salarioActual FLOAT NOT NULL, 
 
 	-- CREDENCIALES 
-	usuario VARCHAR (15),
-	contrasenia VARCHAR (15)
-	FOREIGN KEY (nombrePuesto_Puesto) REFERENCES RRHH.Puesto(nombre)
-	CONSTRAINT AK_Usuario UNIQUE(usuario)
+	usuario VARCHAR (15) NOT NULL,
+	contrasenia VARCHAR (15) NOT NULL,
+	FOREIGN KEY (nombrePuesto_Puesto) REFERENCES RRHH.Puesto(nombre),
+	CONSTRAINT AK_Usuario UNIQUE(usuario),
+
+	--Checks
+	CONSTRAINT Chk_fechaDeNacimientoNoMayorHoy CHECK(fechaNacimiento <= CAST(GETDATE() AS DATE)),
+	CONSTRAINT Chk_salarioActualMayor0 CHECK(salarioActual > 0)
 );
 
 CREATE TABLE RRHH.Pago (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	cedulaAdjudicado_Usuario VARCHAR (20) NOT NULL,
-	montoJornadaRegular INT NOT NULL,
-	montoHorasExtra INT,
+	montoJornadaRegular INT NOT NULL, 
+	montoHorasExtra INT, 
 	horasExtra TIME,
 	jornadaRegular TIME NOT NULL,
-	fechaHora DATETIME NOT NULL,
-	FOREIGN KEY (cedulaAdjudicado_Usuario) REFERENCES RRHH.Usuario(cedula)
+	fechaHora DATETIME NOT NULL, 
+	FOREIGN KEY (cedulaAdjudicado_Usuario) REFERENCES RRHH.Usuario(cedula),
+
+	--Checks
+	CONSTRAINT Chk_montoJornadaRegularMayor0 CHECK(montoJornadaRegular > 0),
+	CONSTRAINT Chk_montoHorasExtraMayor0 CHECK(montoHorasExtra > 0),
+	CONSTRAINT Chk_fechaHoraMenorIgualHoy CHECK(fechaHora <= GETDATE())
+
 );
 
 CREATE TABLE RRHH.HistoricoPuesto (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	puestoActual_Puesto VARCHAR (150) NOT NULL,
 	cedulaU_Usuario VARCHAR (20) NOT NULL,
-	fechaInicio DATE NOT NULL,
-	fechaFin DATE NOT NULL,
+	fechaInicio DATE DEFAULT CAST(GETDATE() AS DATE) NOT NULL, --Falta constrait no puede ser mayor a hoy
+	fechaFin DATE NOT NULL, --Falta constraint debe ser mayor o igual a la fecha de inicio
 	FOREIGN KEY (puestoActual_Puesto) REFERENCES RRHH.Puesto(nombre),
-	FOREIGN KEY (cedulaU_Usuario) REFERENCES RRHH.Usuario(cedula)
+	FOREIGN KEY (cedulaU_Usuario) REFERENCES RRHH.Usuario(cedula),
+
+	--Checks
+	CONSTRAINT Chk_fechaInicioIgualHoy CHECK(fechaInicio = CAST(GETDATE() AS DATE)),
+	CONSTRAINT Chk_fechaFinMayorIgualInicio CHECK(fechaFin >=fechaInicio)
 );
 
 CREATE TABLE RRHH.HistoricoSalario (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	IDHistorico_HistoricoPuesto INT NOT NULL,
-	fechaInicio DATE NOT NULL,
-	fechaFin DATE NOT NULL,
-	monto INT NOT NULL,
-	FOREIGN KEY (IDHistorico_HistoricoPuesto) REFERENCES RRHH.HistoricoPuesto (ID)
+	fechaInicio DATE DEFAULT CAST(GETDATE() AS DATE) NOT NULL, --Falta constrait no puede ser mayor a hoy
+	fechaFin DATE NOT NULL, --Falta constraint debe ser mayor o igual a la fecha de inicio
+	monto INT NOT NULL, --No puede ser menor a 0
+	FOREIGN KEY (IDHistorico_HistoricoPuesto) REFERENCES RRHH.HistoricoPuesto (ID),
 	
+	--Check
+	CONSTRAINT Chk_fechaInicioIgualHoyHS CHECK(fechaInicio = CAST(GETDATE() AS DATE)),
+	CONSTRAINT Chk_fechaFinMayorIgualInicioHS CHECK(fechaFin >=fechaInicio)
+
 );
 
 /*
@@ -96,10 +114,10 @@ CREATE TABLE Ventas.Cliente (
 	cedula VARCHAR (20) PRIMARY KEY NOT NULL,
 	tipoCedula VARCHAR(10) NOT NULL,
 	fax VARCHAR (20) NOT NULL,
-	primerNombre VARCHAR (20) NOT NULL,
-	segundoNombre VARCHAR (20),
-	primerApellido VARCHAR (20),
-	segundoApellido VARCHAR (20),
+	primerNombre VARCHAR (20) NOT NULL, --Si fuera una empresa aquí se guardaría el nombre completo
+	segundoNombre VARCHAR (20) NULL,
+	primerApellido VARCHAR (20) NULL,
+	segundoApellido VARCHAR (20) NULL,
 	email VARCHAR (50) NOT NULL,
 	genero VARCHAR (10) NOT NULL,
 	provincia VARCHAR (20) NOT NULL,
@@ -125,7 +143,7 @@ CREATE TABLE Ventas.Zona ( -- Tabla catalogo_zona
 	descripcion VARCHAR (50) NOT NULL
 );
 
-CREATE TABLE Ventas.Sector ( -- Tabla catalogo_srctor
+CREATE TABLE Ventas.Sector ( -- Tabla catalogo_sector
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	descripcion VARCHAR (25) NOT NULL
 );
@@ -139,16 +157,21 @@ CREATE TABLE Ventas.Cotizacion (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	cedulaCotizador_Cliente VARCHAR (20) NOT NULL,
 	cedulaEmpleado_Usuario VARCHAR (20) NOT NULL,
-	montoTotal INT,
-	fechaCierreProyectada DATE NOT NULL,
-	fechaCierre DATE,
-	fechaHora DATETIME NOT NULL,
+	montoTotal INT, --No puede ser mayor a 0
+	fechaCierreProyectada DATE NOT NULL, --Mayor o igual a la de hoy
+	fechaCierre DATE, 
+	fechaHoraRegistro DATETIME DEFAULT GETDATE() NOT NULL, 
 	probabilidad INT NOT NULL,
 	descripcion VARCHAR (255),
-	zona VARCHAR (50) NOT NULL,
-	sector VARCHAR (25) NOT NULL,	
+	zona VARCHAR (50) NOT NULL, --Viene del catálogo
+	sector VARCHAR (25) NOT NULL, --Viene del catálogo
 	FOREIGN KEY (cedulaCotizador_Cliente) REFERENCES Ventas.Cliente(cedula),
-	FOREIGN KEY (cedulaEmpleado_Usuario) REFERENCES RRHH.Usuario(cedula)
+	FOREIGN KEY (cedulaEmpleado_Usuario) REFERENCES RRHH.Usuario(cedula),
+
+	--Check
+	CONSTRAINT Chk_montoTotalMayor0 CHECK(montoTotal >0),
+	CONSTRAINT Chk_fechaCierreProyectadaMayorIgualHoy CHECK( fechaCierreProyectada >= CAST(GETDATE() AS DATE)),
+	CONSTRAINT Chk_fechaHoraRegistroIgualHoy CHECK(fechaHoraRegistro= GETDATE())
 );
 
 CREATE TABLE Ventas.Caso (
@@ -183,18 +206,25 @@ CREATE TABLE Ventas.Factura (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	responsable_Usuario VARCHAR (20) NOT NULL,
 	comprador_Usuario VARCHAR (20) NOT NULL,
-	fechaHora DATETIME NOT NULL,
+	fechaHora DATETIME DEFAULT GETDATE() NOT NULL,
 	estado VARCHAR (15),
 	motivoAnulacion VARCHAR (200) NOT NULL, -- En caso que la factura haya sido cancelada antes de su confirmación
 	FOREIGN KEY (responsable_Usuario) REFERENCES RRHH.Usuario(cedula),
-	FOREIGN KEY (comprador_Usuario) REFERENCES Ventas.Cliente(cedula)
+	FOREIGN KEY (comprador_Usuario) REFERENCES Ventas.Cliente(cedula),
+
+	--Checks
+	CONSTRAINT Chk_fechaHoraIgualHoy CHECK(fechaHora = GETDATE())
+
 );
 
 CREATE TABLE Ventas.Salida (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	IDFactura_Factura INT NOT NULL,
-	fechaHora DATETIME NOT NULL,
-	FOREIGN KEY (IDFactura_Factura) REFERENCES Ventas.Factura(ID)
+	fechaHora DATETIME DEFAULT GETDATE() NOT NULL,
+	FOREIGN KEY (IDFactura_Factura) REFERENCES Ventas.Factura(ID),
+
+	--Checks
+	CONSTRAINT Chk_fechaHoraIgualHoyS CHECK(fechaHora = GETDATE())
 );
 
 CREATE TABLE Produccion.Bodega (
@@ -205,7 +235,11 @@ CREATE TABLE Produccion.Bodega (
 	distrito VARCHAR (20) NOT NULL,
 	seniaExacta VARCHAR (100) NOT NULL,
 	toneladasCapacidad INT NOT NULL,
-	espacioCubico INT NOT NULL
+	espacioCubico INT NOT NULL,
+
+	--Checks
+	CONSTRAINT Chk_toneladasCapacidadMayor0 CHECK (toneladasCapacidad > 0),
+	CONSTRAINT Chk_espacioCubicoMayor0 CHECK (espacioCubico >0)
 );
 
 CREATE TABLE Produccion.Familia (
@@ -233,7 +267,12 @@ CREATE TABLE Produccion.Articulo (
 	marca VARCHAR (50) NOT NULL,
 	activo VARCHAR (10),
 	FOREIGN KEY (codigoF_Familia) REFERENCES Produccion.Familia(codigo),
-	CONSTRAINT AK_Codigo UNIQUE(codigo) -- Los codigos de productos deben ser unicos a no ser que sean eliminados del sistema
+	CONSTRAINT AK_Codigo UNIQUE(codigo), -- Los codigos de productos deben ser unicos a no ser que sean eliminados del sistema
+
+	--Checks
+	CONSTRAINT Chk_precioMayor0 CHECK(precio > 0),
+	CONSTRAINT Chk_pesoMayor0  CHECK(peso > 0)
+
 );
 
 CREATE TABLE Produccion.Movimiento (
@@ -241,10 +280,13 @@ CREATE TABLE Produccion.Movimiento (
 	codigoOrigen_Bodega VARCHAR (10) NOT NULL,
 	codigoDestino_Bodega VARCHAR (10) NOT NULL,
 	responsable_Usuario VARCHAR (20) NOT NULL,
-	fechaHora DATETIME NOT NULL,
+	fechaHora DATETIME DEFAULT GETDATE() NOT NULL,
 	FOREIGN KEY (responsable_Usuario) REFERENCES RRHH.Usuario(cedula),
 	FOREIGN KEY (codigoOrigen_Bodega) REFERENCES Produccion.Bodega (codigo),
-	FOREIGN KEY (codigoDestino_Bodega) REFERENCES Produccion.Bodega (codigo)
+	FOREIGN KEY (codigoDestino_Bodega) REFERENCES Produccion.Bodega (codigo),
+
+	--Checks
+	CONSTRAINT Chk_fechaHoraIgualHoy CHECK(fechaHora = GETDATE())
 );
 
 -- Tabla para agregar lineas de productos (cantidad) independientes a un movimiento
@@ -260,9 +302,12 @@ CREATE TABLE Produccion.Entrada (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	codigoDestino_Bodega VARCHAR (10) NOT NULL,
 	responsable_Usuario VARCHAR(20) NOT NULL,
-	fechaHora DATETIME NOT NULL,
+	fechaHora DATETIME DEFAULT GETDATE() NOT NULL,
 	FOREIGN KEY (responsable_Usuario) REFERENCES RRHH.Usuario (cedula),
-	FOREIGN KEY (codigoDestino_Bodega) REFERENCES Produccion.Bodega(codigo)
+	FOREIGN KEY (codigoDestino_Bodega) REFERENCES Produccion.Bodega(codigo),
+
+	--Check
+	CONSTRAINT Chk_fechaHoraIgualHoyE CHECK (fechaHora = GETDATE())
 );
 
 CREATE TABLE Produccion.EntradaArticulo (
@@ -270,7 +315,10 @@ CREATE TABLE Produccion.EntradaArticulo (
 	nombreA_Articulo VARCHAR (130) NOT NULL,
 	cantidadArticulo INT NOT NULL,
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
-	FOREIGN KEY (IDEntrada_Entrada) REFERENCES Produccion.Entrada(ID)
+	FOREIGN KEY (IDEntrada_Entrada) REFERENCES Produccion.Entrada(ID),
+
+	--Check
+	CONSTRAINT Chk_cantidadArticuloMayor0 CHECK(cantidadArticulo > 0)
 );
 
 CREATE TABLE Produccion.Inventario ( -- Esta tabla pertenece al schema de producción pero puede ser visualizada desde la venta
@@ -278,7 +326,10 @@ CREATE TABLE Produccion.Inventario ( -- Esta tabla pertenece al schema de produc
 	nombreA_Articulo VARCHAR (130) NOT NULL,
 	cantidad INT NOT NULL,
 	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo),
-	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre)
+	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
+	
+	--Check
+	CONSTRAINT Chk_cantidadMayor0 CHECK(cantidad > 0)
 );
 
 -- Esta tabla es intermedia entre el esquema de ventas y produccion
@@ -286,20 +337,31 @@ CREATE TABLE Ventas.FacturaInventario (
 	ID_Factura INT NOT NULL,
 	nombreA_Articulo VARCHAR(130) NOT NULL,
 	codigoB_Bodega VARCHAR (10) NOT NULL,
-	cantidadProducto INT NOT NULL,
+	cantidadProducto INT NOT NULL, --No puede ser menor a 0
+	precioProducto INT NOT NULL, --No puede ser menor a 0
 	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Factura(ID),
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
-	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
+	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo),
+
+
+	--Check
+	CONSTRAINT Chk_cantidadProductoMayor0FI CHECK(cantidadProducto > 0),
+	CONSTRAINT Chk_precioProductoMayor0FI CHECK(precioProducto > 0)
 );
 
 CREATE TABLE Ventas.CotizacionInventario ( -- Sirve como orden de compra
 	ID_Cotizacion INT NOT NULL,
 	nombreA_Articulo VARCHAR (130) NOT NULL,
 	codigoB_Bodega VARCHAR (10) NOT NULL,
-	cantidadProducto INT NOT NULL,
-	FOREIGN KEY (ID_Factura) REFERENCES Ventas.Cotizacion(ID),
+	cantidadProducto INT NOT NULL, --No puede ser menor a 0
+	precioProducto INT NOT NULL, --No puede ser menor a 0
+	FOREIGN KEY (ID_Cotizacion) REFERENCES Ventas.Cotizacion(ID),
 	FOREIGN KEY (nombreA_Articulo) REFERENCES Produccion.Articulo(nombre),
-	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo)
+	FOREIGN KEY (codigoB_Bodega) REFERENCES Produccion.Bodega(codigo),
+
+	--Check
+	CONSTRAINT Chk_cantidadProductoMayor0CI CHECK (cantidadProducto > 0),
+	CONSTRAINT Chk_precioProductoMayor0CI CHECK (precioProducto > 0)
 );
 
 CREATE TABLE Ventas.TipoCedula ( -- Tabla catalogo_tipoCedula
