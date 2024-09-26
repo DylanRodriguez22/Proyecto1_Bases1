@@ -12,6 +12,7 @@ namespace ERP.Pages.Administrador
         public List<Puesto> puestos = new List<Puesto>();
         public void OnGet()
         {
+            buscarPuestos();
         }
 
         public void buscarPuestos()
