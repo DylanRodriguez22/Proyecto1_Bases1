@@ -48,28 +48,7 @@ namespace ERP.Pages.RRHH
         //Esta función se ejecuta cuando se presiona el botón de Registrar Empleado
         public void OnPost()
         {
-            //Por si ya tenían algo para evitar duplicados
-            puestosRRHH.Clear();
-            puestosVentas.Clear();
-            puestosProduccion.Clear();
-
-            //Parte de la inserción
-            try
-            {
-                using (SqlConnection conexion = new SqlConnection(baseDeDatos.stringConexion))
-                {
-                    string primeraParte = "insert into RRHH.Usuario (usuario, cedula, primerNombre, segundoNombre, primerApellido, segundoApellido, genero, provincia, canton, distrito, seniaExacta,fechaRegistro, fechaDeNacimiento, salarioActual)";
-                    string segundaParte = "values ('pepita','1414567890', 'María', 'Isabel', 'Ramírez', 'Jiménez', 'F', 'Alajuela', 'San Carlos', 'Quesada', 'Frente a la plaza central', '2024-09-22', '1985-08-12', 520000)";
-                    conexion.Open();
-                    using (SqlCommand cmd = conexion.CreateCommand()) {
-    
-                        cmd.CommandText = primeraParte + segundaParte;
-                        //cmd.ExecuteNonQuery();
-                    }
-                    conexion.Close();
-                }
-            }
-            catch (SqlException ex) { ErrorMensaje = ex.Message; }
+            
             
         }
 

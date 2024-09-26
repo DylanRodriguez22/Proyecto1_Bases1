@@ -111,7 +111,7 @@
         <div class="input-container">
             <div>
                 <label>Departamento</label>
-                <select id="departamentos" name="departamentos">
+                <select id="departamentos"  asp-for="departamentoSeleccionado">
                     @foreach (var departamento in Model.departamentos)
                     {
                         <option value="@departamento">@departamento</option>
