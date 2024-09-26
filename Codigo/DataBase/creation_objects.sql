@@ -210,7 +210,7 @@ CREATE TABLE Ventas.Etapa ( -- Tabla catalogo_Etapa
 CREATE TABLE Ventas.Factura (
 	ID INT IDENTITY (1, 1) PRIMARY KEY,
 	responsable_Usuario VARCHAR (20) NOT NULL,
-	comprador_Usuario VARCHAR (20) NOT NULL,
+	comprador_Cliente VARCHAR (20) NOT NULL,
 	fechaHora DATETIME DEFAULT GETDATE() NOT NULL,
 	estado VARCHAR (15),
 	montoTotal float NOT NULL,
